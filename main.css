@@ -17,20 +17,40 @@ body {
 .game {
     display: flex;
     flex-wrap: wrap;
-    height: 800px;
-    width: 750px;
-    background-color: lightblue;
+    height: 672px;
+    width: 672px;
     position: absolute;
     top: 55%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
-.game div {
-    border: 1px solid black;
+.sqm-enabled {
     flex-grow: 1;
-    height: 2.5%;
-    width: 2.5%;
+    height: 32px;
+    width: 32px;
+    background-color: white;
+}
+
+.sqm-disabled {
+    flex-grow: 1;
+    height: 32px;
+    width: 32px;
+    background-color: rgb(5, 5, 5);
+}
+
+.sqm-player {
+    flex-grow: 1;
+    height: 32px;
+    width: 32px;
+    background-color: red;
+}
+
+.sqm-enemy {
+    flex-grow: 1;
+    height: 32px;
+    width: 32px;
+    background-color: blue;
 }
 
 .button {
