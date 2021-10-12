@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=>, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/main.css">
     <script src="./scripts/app.js" defer></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -34,7 +32,8 @@
                 <h2>Score: <span class="score-span"></span></h2>
             </div>
             <div class="high-score">
-                <h2>High Score <span class="high-score-span"></span></h2>
+                <h2>High Score</h2>
+                <ol id="highScores"></ol>
             </div>
         </div>
         
@@ -46,9 +45,7 @@
     </div>
 
     <div class="audio-player">
-        <audio controls autoplay loop>
-            <source src="./other-resouces/Harry_Potter_Theme_Song_Hedwigs_Theme.mp3" type="audio/mpeg">
-        </audio>
+        <audio controls autoplay loop src="./other-resources/Harry_Potter_Theme_Song_Hedwigs_Theme.mp3" type="audio/mpeg"></audio>
     </div>
 </body>
 </html>
