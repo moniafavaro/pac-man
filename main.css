@@ -4,14 +4,27 @@
 
 body {
     text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    background-image: url(./other-resouces/green-sky.jpeg);
+    background-position: center;
+    background-repeat: no-repeat;
+}
 
+.main {
+    width: 1024px;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+header {
+    color: rgb(15, 87, 15);
 }
 
 .game-container {
-    background-color: red;
-    height: 200px;
-    width: 200px;
-    position: relative;
+    height: 190px;
+    width: 190px;
 }
 
 .game {
@@ -20,7 +33,7 @@ body {
     height: 672px;
     width: 672px;
     position: absolute;
-    top: 55%;
+    top: 70%;
     left: 50%;
     transform: translate(-50%, -50%);
 }
@@ -29,7 +42,7 @@ body {
     flex-grow: 1;
     height: 32px;
     width: 32px;
-    background-color: white;
+    background-color: rgb(184, 235, 184);
 }
 
 .sqm-disabled {
@@ -43,63 +56,105 @@ body {
     flex-grow: 1;
     height: 32px;
     width: 32px;
-    background-color: red;
+    background-image: url(./other-resouces/lord-voldemort.png);
+    background-color: rgb(184, 235, 184);
+    background-size: cover;
 }
 
 .sqm-enemy {
     flex-grow: 1;
     height: 32px;
     width: 32px;
-    background-color: blue;
+    background-image: url(./other-resouces/nose.png);
+    background-color: rgb(184, 235, 184);
+    background-size: cover;
+}
+
+.sqm-food {
+    flex-grow: 1;
+    height: 32px;
+    width: 32px;
+    background-image: url(./other-resouces/scar.png);
+    background-repeat: no-repeat;
+    background-color: rgb(184, 235, 184);
+    background-size: 50%;
+    background-position: center;
 }
 
 .button {
     display: flex;
     flex-direction: row;
-    margin-top: 8em;
+    margin-top: -15em;
+    margin-left: -1em;
 }
 
-button {
-    padding: 4px 10px;
+.start-button {
+    padding: 10px 10px;
     text-align: center;
-    font-size: 12px;
+    font-size: 10px;
     margin: 8px;
+    border-radius: 5px;
+    box-shadow:rgba(0, 0, 0, 0.2);
+    width: 70px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+.reset-button {
+    padding: 10px 10px;
+    text-align: center;
+    font-size: 10px;
+    margin: 8px;
+    border-radius: 5px;
+    box-shadow:rgba(0, 0, 0, 0.2);
+    width: 70px;
+    font-family: 'Press Start 2P', cursive;
+    background-color: rgba(255, 255, 255, 0.3);
 }
 
 .life {
     display: flex;
     align-items: center;
-    border: 2px solid black;
-    width: 200px;
-    height: 60px;
+    width: 150px;
+    height: 50px;
     margin-top: 50px;
     padding: 5px;
+    font-size: 9px;
 }
 
 .score {
     display: flex;
     align-items: center;
-    width: 200px;
-    height: 60px;
+    width: 150px;
+    height: 50px;
     margin-top: 20px;
     padding: 5px;
-    border: 2px solid black;
+    font-size: 9px;
 }
 
 .high-score {
     text-align: center;
-    border: 2px solid black;
-    width: 200px;
+    width: 150px;
     height: 100px;
-    margin-top: 50px;
+    margin-top: 20px;
+    font-size: 10px;
 }
 
 .how-to-play {
-    border: 2px solid black;
     text-align: center;
     width: 200px;
     height: 250px;
     float: right;
     margin-top: -365px;
+    font-size: 12px;
+    margin-right: -3em;
 }
 
+.how-to {
+    padding: 15px;
+    color: red;
+}
+
+.audio-player {
+    margin-top: 49em;
+}

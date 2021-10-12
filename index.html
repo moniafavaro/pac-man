@@ -4,39 +4,51 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=>, initial-scale=1.0">
-    <link rel="stylesheet" href="main.css">
-    <script src="app.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <script src="main.js" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
     <title>VOLDY-MAN</title>
 </head>
 <body>
-    <h1>VOLDY-MAN</h1>
-
-    <div id="game-container">
-        <div class="game"></div>
-    </div>
-
-    <div class="button">
-        <button id="start-button" class="start-button" type="button">START</button>
-        <button id="reset-button" class="reset-button" type="button">RESET</button>
-    </div>
-
-    <div class="life">
-        <h2 >Life: <span class="life-span"></span></h2>
-    </div>
-
-    <div class="scores">
-        <div class="score">
-            <h2>Score: <span class="score-span"></span></h2>
+    <header>
+        <h1>VOLDY-MAN</h1>
+    </header>
+    <div class="main">
+        <div id="game-container">
+            <div class="game"></div>
         </div>
-        <div class="high-score">
-            <h2>High Score <span class="high-score-span"></span></h2>
+        
+        <div class="button">
+            <button id="start-button" class="start-button" type="button" value="Start">START</button>
+            <input id="reset-button" class="reset-button" type="button" value="RESET" onclick="document.location.reload(true)"></input>
+        </div>
+        
+        <div class="life">
+            <h2 >Life: <span class="life-span"></span></h2>
+        </div>
+        
+        <div class="scores">
+            <div class="score">
+                <h2>Score: <span class="score-span"></span></h2>
+            </div>
+            <div class="high-score">
+                <h2>High Score <span class="high-score-span"></span></h2>
+            </div>
+        </div>
+        
+        <div class="how-to-play">
+            <h2 class="how-to">How to play</h2>
+            <p>USE ARROW KEYS TO PLAY</p>
+            <p>Help Lord Voldemort run from the noses and get all horcruxes!!</p>
         </div>
     </div>
 
-
-    <div class="how-to-play">
-        <h2>How to play</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis numquam ullam temporibus similique ratione explicabo tenetur provident cumque quidem eum nemo inventore, sunt laborum natus ea pariatur recusandae totam perferendis?</p>
+    <div class="audio-player">
+        <audio controls autoplay loop>
+            <source src="./Harry_Potter_Theme_Song_Hedwigs_Theme.mp3" type="audio/mpeg">
+        </audio>
     </div>
 </body>
 </html>
