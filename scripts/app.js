@@ -7,6 +7,7 @@ const enemyStartPosition = 199
 let playerIndex = 0
 let enemyAmount = 3
 let enemyIndex = []
+let enemyInterval = 0
 const lifeElement = document.querySelector('.life-span')
 let life = 3
 const scoreElement = document.querySelector('.score-span')
@@ -73,6 +74,7 @@ function play() {
     let movements = [MOVE_UP, MOVE_RIGHT, MOVE_DOWN, MOVE_LEFT]
 
     function playerStart() {
+        document.getElementById('start-button').disabled = true
         let player = document.getElementById('sqm-' + playerStartPosition)
         player.classList.add('sqm-player')
         playerIndex = playerStartPosition
@@ -144,12 +146,11 @@ function play() {
     }
 
     function gameOver() {
-        let isGameOver = false
         for (let i = 0; i < enemyAmount; i++) {
             if (playerIndex === enemyIndex[i]) {
-                if (life > 1) {
-                    life--
-                    lifeElement.innerHTML = life
+                life--
+                lifeElement.innerHTML = life
+                if (life > 0) {
                     cells[playerIndex].classList.remove('sqm-player')
                     let player = document.getElementById('sqm-' + playerStartPosition)
                     player.classList.add('sqm-player')
@@ -160,14 +161,21 @@ function play() {
                         highScoreElement.innerHTML = score
                         highScore = localStorage.getItem('highScore')
                     }
-                    isGameOver = true
+                    stopGame()
                 }
-                alert('Game Over')
+                break
             }
         }
     }
     
-    document.addEventListener('keydown', function (event) {
+    function stopGame() {
+        const gameOverMessage = document.getElementById('game-over')
+        gameOverMessage.style.display = 'block'
+        clearInterval(enemyInterval)
+        document.removeEventListener('keydown', keyDown)
+    }
+
+    function keyDown(event) {
         switch (event.key) {
             case 'ArrowUp':
                 arrowUp()
@@ -182,7 +190,9 @@ function play() {
                 arrowLeft()
                 break
         }
-    })
+    }
+    
+    document.addEventListener('keydown', keyDown)
 
     // enemy functions
     function enemyStart() {
@@ -247,7 +257,7 @@ function play() {
     enemyStart()
     foodStart()
 
-    setInterval(enemyMove, 400)
+    enemyInterval = setInterval(enemyMove, 400)
 }
 
 if (highScore === null) {
