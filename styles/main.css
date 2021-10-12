@@ -5,7 +5,7 @@
 body {
     text-align: center;
     font-family: 'Press Start 2P', cursive;
-    background-image: url(./other-resouces/green-sky.jpeg);
+    background-image: url(../other-resouces/green-sky.jpeg);
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -56,7 +56,7 @@ header {
     flex-grow: 1;
     height: 32px;
     width: 32px;
-    background-image: url(./other-resouces/lord-voldemort.png);
+    background-image: url(../other-resouces/lord-voldemort.png);
     background-color: rgb(184, 235, 184);
     background-size: cover;
 }
@@ -65,7 +65,7 @@ header {
     flex-grow: 1;
     height: 32px;
     width: 32px;
-    background-image: url(./other-resouces/nose.png);
+    background-image: url(../other-resouces/nose.png);
     background-color: rgb(184, 235, 184);
     background-size: cover;
 }
@@ -74,7 +74,7 @@ header {
     flex-grow: 1;
     height: 32px;
     width: 32px;
-    background-image: url(./other-resouces/scar.png);
+    background-image: url(../other-resouces/scar.png);
     background-repeat: no-repeat;
     background-color: rgb(184, 235, 184);
     background-size: 50%;
