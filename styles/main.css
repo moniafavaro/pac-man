@@ -55,6 +55,13 @@ header {
     background-color: rgb(5, 5, 5);
 }
 
+.sqm-food-disabled {
+    flex-grow: 1;
+    height: 32px;
+    width: 32px;
+    background-color: rgb(184, 235, 184);
+}
+
 .sqm-food {
     flex-grow: 1;
     height: 32px;
@@ -179,6 +186,26 @@ header {
     margin-top: 45px;
     padding-top: 1em;
 }    
+
+.game-message-div {
+    text-align: center;
+}
+
+#game-message {
+    display: none;
+    position: absolute;
+    font-size: 8em;
+    color: green;
+    z-index: 2;
+    width: 680px;
+    height: 680px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.3);
+    margin-top: 45px;
+    padding-top: 1em;
+}
 
 audio {
     width: 120px;

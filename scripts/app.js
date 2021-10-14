@@ -2,111 +2,208 @@ const cells = []
 const game = document.querySelector('.game')
 const width = 21
 const gridCellCount = width * width
-const playerStartPosition = 325
-const enemyStartPosition = 199
-let playerIndex = 0
-let enemyAmount = 3
-let enemyIndex = []
-let enemyInterval = 0
 const lifeElement = document.querySelector('.life-span')
-let life = 3
 const scoreElement = document.querySelector('.score-span')
-let score = 0
 const highScoreElement = document.querySelector('#highScores')
-let highScore = localStorage.getItem('highScore')
 
 const MOVE_UP = -21
 const MOVE_RIGHT = 1
 const MOVE_DOWN = 21
 const MOVE_LEFT = -1
 
-const level = [
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0],
-    [0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1, 0, 0],
-    [0, 0, 1, 0, 1, 1, 1, 0, 1, 0, 1, 0, 0, 1, 1, 0, 1, 0, 1, 0, 0],
-    [0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
-    [0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
-    [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
-    [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0],
-    [0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0],
-    [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
-    [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
-    [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-    [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
-    [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
-]
+const levelConfigs = {
+    'level1': {
+        'enemyAmount': 3,
+        'enemySpeed': 500,
+        'bonusFoodAmount': 5,
+        'playerStartPosition': 325,
+        'enemyStartPosition': 199,
+        'grid': [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0],
+            [0, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 0],
+            [0, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 0, 0, 1, 1, 0, 2, 0, 1, 0, 0],
+            [0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0],
+            [0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0],
+            [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
+            [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ]
+    },
+    'level2': {
+        'enemyAmount': 4,
+        'enemySpeed': 400,
+        'bonusFoodAmount': 6,
+        'playerStartPosition': 325,
+        'enemyStartPosition': 199,
+        'grid': [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0],
+            [0, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 0],
+            [0, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 0, 0, 1, 1, 0, 2, 0, 1, 0, 0],
+            [0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0],
+            [0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0],
+            [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
+            [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ]
+    },
+    'level3': {
+        'enemyAmount': 5,
+        'enemySpeed': 300,
+        'bonusFoodAmount': 7,
+        'playerStartPosition': 325,
+        'enemyStartPosition': 199,
+        'grid': [
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 1, 0, 1, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1, 1, 1, 0],
+            [0, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 2, 0, 1, 0, 0],
+            [0, 0, 1, 0, 1, 1, 1, 0, 2, 0, 1, 0, 0, 1, 1, 0, 2, 0, 1, 0, 0],
+            [0, 1, 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0, 1, 0, 0, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0],
+            [0, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 0, 0, 1, 0, 0, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 1, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 1, 0, 0, 1, 0],
+            [0, 1, 1, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 0],
+            [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
+            [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
+            [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
+        ]
+    }
+}
 
 function creatGrid() {
     for(let i = 0; i < gridCellCount; i++) {
         const cell = document.createElement('div')
-        //cell.setAttribute('data-index', 1)
         cell.setAttribute('id', 'sqm-' + i)
         cells.push(cell)
         game.appendChild(cell)
-    }
-}
-
-function createLevel() {
-    let index = 0
-    for (let i = 0; i < level.length; i++) {
-        let row = level[i]
-        for (let j = 0; j < row.length; j++) {
-            let style = 'sqm-enabled'
-            if (row[j] === 0) {
-                style = 'sqm-disabled'
-            }
-            let sqm = document.getElementById('sqm-' + index)
-            sqm.classList.add(style)
-            index++
+        if ((i >= 0 && i <= 20) || (i >= 420 && i <= 440) || ((i+1) % 21 === 0) || (i % 21 === 0)) {
+            cell.classList.add('sqm-disabled')
+        } else {
+            cell.classList.add('sqm-enabled')
         }
     }
 }
 
 function play() {
+    let highScore = localStorage.getItem('highScore')
+    let currentLevel = 0
+    let score = 0
+    let life = 3
+    let playerIndex = 0
+    let enemyIndex = []
+    let enemyInterval = 0
     let movements = [MOVE_UP, MOVE_RIGHT, MOVE_DOWN, MOVE_LEFT]
+
+    if (highScore === null) {
+        highScore = 0
+    }
+    highScoreElement.innerHTML = highScore
+
+    function createLevel() {
+        let currentLevelConfig = levelConfigs['level' + currentLevel]
+        let level = currentLevelConfig['grid']
+        let index = 0
+        for (let i = 0; i < level.length; i++) {
+            let row = level[i]
+            for (let j = 0; j < row.length; j++) {
+                let sqm = document.getElementById('sqm-' + index)
+                sqm.className = ''
+                let style = ''
+                switch (row[j]) {
+                    case 0: 
+                        style = 'sqm-disabled'
+                        break
+                    case 1:
+                        style = 'sqm-enabled'
+                        break
+                    case 2:
+                        style = 'sqm-food-disabled'
+                        break
+                }
+                sqm.classList.add(style)
+                index++
+            }
+        }
+    }
 
     function playerStart() {
         document.getElementById('start-button').disabled = true
-        let player = document.getElementById('sqm-' + playerStartPosition)
+        
+        // to remove player from the grid
+        let player = document.getElementById('sqm-' + playerIndex)
+        console.log(player)
+        player.classList.remove('sqm-player')
+
+        //to add player in the grid
+        let currentLevelConfig = levelConfigs['level' + currentLevel]
+        let playerStartPosition = currentLevelConfig['playerStartPosition']
+        player = document.getElementById('sqm-' + playerStartPosition)
         player.classList.add('sqm-player')
         playerIndex = playerStartPosition
         scoreElement.innerHTML = score
         lifeElement.innerHTML = life
+        document.addEventListener('keydown', keyDown)
     }
 
-    const arrowUp = () => {
+    function arrowUp() {
         let isPlayer = true
         const playerOnTop = (index) => index < 20
         tryMove(playerIndex, MOVE_UP, playerOnTop, isPlayer)
     }
     
-    const arrowRight = () => {
+    function arrowRight() {
         let isPlayer = true
-        const playerOnRight = (index) => (index +1) % 21 ===     0
+        const playerOnRight = (index) => (index +1) % 21 === 0
         tryMove(playerIndex, MOVE_RIGHT, playerOnRight, isPlayer)
     }
     
-    const arrowDown = () => {
+    function arrowDown() {
         let isPlayer = true
         const playerDown = (index) => index > 419
         tryMove(playerIndex, MOVE_DOWN, playerDown, isPlayer)
     }
     
-    const arrowLeft = () => {
+    function arrowLeft() {
         let isPlayer = true
         const playerOnLeft = (index) => index % 21 === 0
         tryMove(playerIndex, MOVE_LEFT, playerOnLeft, isPlayer)
     }
     
-    const tryMove = (currentIndex, changeIndex, indexAtLimit, isPlayer, enemyPosition = 0) => {
+    function tryMove(currentIndex, changeIndex, indexAtLimit, isPlayer, enemyPosition = 0) {
         const newIndex = currentIndex + changeIndex
         if (cannotMove(currentIndex, newIndex, indexAtLimit)) {
             return false
@@ -135,6 +232,9 @@ function play() {
                 cells[newIndex].classList.remove('sqm-food')
                 score += 5
                 scoreElement.innerHTML = score
+                if (document.getElementsByClassName('sqm-food').length === 0) {
+                    startNewLevel()
+                }
             }
             playerIndex = newIndex
         } else {
@@ -146,6 +246,9 @@ function play() {
     }
 
     function gameOver() {
+        let currentLevelConfig = levelConfigs['level' + currentLevel]
+        let enemyAmount = currentLevelConfig['enemyAmount']
+        let playerStartPosition = currentLevelConfig['playerStartPosition']
         for (let i = 0; i < enemyAmount; i++) {
             if (playerIndex === enemyIndex[i]) {
                 life--
@@ -161,21 +264,46 @@ function play() {
                         highScoreElement.innerHTML = score
                         highScore = localStorage.getItem('highScore')
                     }
+                    const gameOverMessage = document.getElementById('game-over')
+                    gameOverMessage.style.display = 'block'
                     stopGame()
                 }
                 break
             }
         }
     }
+
+    function startNewLevel() {
+        stopGame()
+
+        if (currentLevel > 0) {
+            const gameLevelMessage = document.getElementById('game-message')
+            gameLevelMessage.style.display = 'block'
+            setTimeout(() => {
+                const gameLevelMessage = document.getElementById('game-message')
+                gameLevelMessage.style.display = 'none'
+            }, 2000);
+        }
+
+        currentLevel++
+
+        createLevel()
+        playerStart()
+        enemyStart()
+        foodStart()
+    
+        let currentLevelConfig = levelConfigs['level' + currentLevel]
+        let enemySpeed = currentLevelConfig['enemySpeed']
+        enemyInterval = setInterval(enemyMove, enemySpeed)
+    }
     
     function stopGame() {
-        const gameOverMessage = document.getElementById('game-over')
-        gameOverMessage.style.display = 'block'
         clearInterval(enemyInterval)
         document.removeEventListener('keydown', keyDown)
     }
 
     function keyDown(event) {
+        console.log('keyDown')
         switch (event.key) {
             case 'ArrowUp':
                 arrowUp()
@@ -191,11 +319,20 @@ function play() {
                 break
         }
     }
-    
-    document.addEventListener('keydown', keyDown)
 
     // enemy functions
     function enemyStart() {
+        //to remove all enemies from grid
+        for (let i = 0; i < enemyIndex.length; i++) {
+            let enemy = document.getElementById('sqm-' + enemyIndex[i])
+            enemy.classList.remove('sqm-enemy')
+        }
+        enemyIndex = []
+
+        //to add enemies to grid
+        let currentLevelConfig = levelConfigs['level' + currentLevel]
+        let enemyAmount = currentLevelConfig['enemyAmount']
+        let enemyStartPosition = currentLevelConfig['enemyStartPosition']
         for (let i = 0; i < enemyAmount; i++) {
             let enemy = document.getElementById('sqm-' + enemyStartPosition)
             enemy.classList.add('sqm-enemy')
@@ -204,6 +341,8 @@ function play() {
     }
 
     function enemyMove() {
+        let currentLevelConfig = levelConfigs['level' + currentLevel]
+        let enemyAmount = currentLevelConfig['enemyAmount']
         for (let i = 0; i < enemyAmount; i++) {
             if (movements.length === 0) {
                 movements = [MOVE_UP, MOVE_RIGHT, MOVE_DOWN, MOVE_LEFT]
@@ -244,26 +383,25 @@ function play() {
         }
     }
 
+    // food function
     function foodStart() {
+        let randomBonusFood = []
+        let currentLevelConfig = levelConfigs['level' + currentLevel]
+        let bonusFoodAmount = currentLevelConfig['bonusFoodAmount']
+        for (let i = 0; i < bonusFoodAmount; i++) {
+            
+        }
+
         for(let i = 0; i < gridCellCount; i++) {
             let sqm = document.getElementById('sqm-' + i)
-            if (sqm.classList.contains('sqm-enabled') && !sqm.classList.contains('sqm-player') && !sqm.classList.contains('sqm-enemy')) {
+            if (sqm.classList.contains('sqm-enabled') && !sqm.classList.contains('sqm-player') && !sqm.classList.contains('sqm-enemy') && !sqm.classList.contains('sqm-food-disabled')) {
                 sqm.classList.add('sqm-food')
             }
         }
     }
 
-    playerStart()
-    enemyStart()
-    foodStart()
-
-    enemyInterval = setInterval(enemyMove, 400)
-}
-
-if (highScore === null) {
-    highScore = 0
+    startNewLevel()
 }
 creatGrid()
-createLevel()
+
 document.getElementById('start-button').addEventListener('click', play)
-highScoreElement.innerHTML = highScore
