@@ -14,8 +14,7 @@ const MOVE_LEFT = -1
 const levelConfigs = {
     'level1': {
         'enemyAmount': 3,
-        'enemySpeed': 500,
-        'bonusFoodAmount': 5,
+        'enemySpeed': 400,
         'playerStartPosition': 325,
         'enemyStartPosition': 199,
         'grid': [
@@ -44,8 +43,7 @@ const levelConfigs = {
     },
     'level2': {
         'enemyAmount': 4,
-        'enemySpeed': 400,
-        'bonusFoodAmount': 6,
+        'enemySpeed': 300,
         'playerStartPosition': 325,
         'enemyStartPosition': 199,
         'grid': [
@@ -68,14 +66,13 @@ const levelConfigs = {
             [0, 0, 1, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 1, 0, 0],
             [0, 1, 1, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0],
             [0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 1, 0],
-            [0, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 0],
+            [0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0],
             [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0],
         ]
     },
     'level3': {
-        'enemyAmount': 5,
-        'enemySpeed': 300,
-        'bonusFoodAmount': 7,
+        'enemyAmount': 7,
+        'enemySpeed': 150,
         'playerStartPosition': 325,
         'enemyStartPosition': 199,
         'grid': [
@@ -116,11 +113,19 @@ function creatGrid() {
             cell.classList.add('sqm-enabled')
         }
     }
+
+    const voldySmiling = document.getElementById('voldy')
+    voldySmiling.style.display = 'block'
+    
+    document.getElementById('start-button').onclick = function(event) {
+        voldySmiling.style.display = 'none'
+    }
 }
 
 function play() {
     let highScore = localStorage.getItem('highScore')
     let currentLevel = 0
+    let maxLevel = 3
     let score = 0
     let life = 3
     let playerIndex = 0
@@ -165,7 +170,6 @@ function play() {
         
         // to remove player from the grid
         let player = document.getElementById('sqm-' + playerIndex)
-        console.log(player)
         player.classList.remove('sqm-player')
 
         //to add player in the grid
@@ -246,6 +250,10 @@ function play() {
     }
 
     function gameOver() {
+        if (currentLevel > maxLevel) {
+            return
+        }
+
         let currentLevelConfig = levelConfigs['level' + currentLevel]
         let enemyAmount = currentLevelConfig['enemyAmount']
         let playerStartPosition = currentLevelConfig['playerStartPosition']
@@ -266,6 +274,8 @@ function play() {
                     }
                     const gameOverMessage = document.getElementById('game-over')
                     gameOverMessage.style.display = 'block'
+                    const audioNew = new Audio('../other-resources/avada-kedavra.mp3')
+                    audioNew.play()
                     stopGame()
                 }
                 break
@@ -276,6 +286,19 @@ function play() {
     function startNewLevel() {
         stopGame()
 
+        currentLevel++
+
+        if (currentLevel > maxLevel) {
+            if (score > highScore) {
+                localStorage.setItem('highScore', score)
+                highScoreElement.innerHTML = score
+                highScore = localStorage.getItem('highScore')
+            }
+            const gameDone = document.getElementById('game-done')
+            gameDone.style.display = 'block'
+            return
+        }
+
         if (currentLevel > 0) {
             const gameLevelMessage = document.getElementById('game-message')
             gameLevelMessage.style.display = 'block'
@@ -284,8 +307,6 @@ function play() {
                 gameLevelMessage.style.display = 'none'
             }, 2000);
         }
-
-        currentLevel++
 
         createLevel()
         playerStart()
@@ -303,7 +324,6 @@ function play() {
     }
 
     function keyDown(event) {
-        console.log('keyDown')
         switch (event.key) {
             case 'ArrowUp':
                 arrowUp()
@@ -349,7 +369,6 @@ function play() {
             }
             
             let randomMovement = movements[Math.floor(Math.random() * movements.length)]
-            
             let isPlayer = false
             const alwaysFalse = (index) => index !== index
             let moved = tryMove(enemyIndex[i], randomMovement, alwaysFalse, isPlayer, i)
@@ -385,12 +404,11 @@ function play() {
 
     // food function
     function foodStart() {
-        let randomBonusFood = []
-        let currentLevelConfig = levelConfigs['level' + currentLevel]
-        let bonusFoodAmount = currentLevelConfig['bonusFoodAmount']
-        for (let i = 0; i < bonusFoodAmount; i++) {
-            
-        }
+        // let randomBonusFood = []
+        // let currentLevelConfig = levelConfigs['level' + currentLevel]
+        // let bonusFoodAmount = currentLevelConfig['bonusFoodAmount']
+        // for (let i = 0; i < bonusFoodAmount; i++) {
+        // }
 
         for(let i = 0; i < gridCellCount; i++) {
             let sqm = document.getElementById('sqm-' + i)

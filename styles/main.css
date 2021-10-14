@@ -73,6 +73,18 @@ header {
     background-position: center;
 }
 
+#voldy {
+    background-size: 100%;
+    display: none;
+    position: absolute;
+    font-size: 11em;
+    color: red;
+    z-index: 2;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
 .sqm-player {
     flex-grow: 1;
     height: 32px;
@@ -159,7 +171,17 @@ header {
     float: right;
     margin-top: -40em;
     font-size: 12px;
-    margin-right: -3em;
+    margin-right: -4em;
+}
+
+.how-to-play-list {
+    text-align: center;
+    width: 200px;
+    height: 250px;
+    float: right;
+    font-size: 12px;
+    padding: 2px;
+    margin-right: -1em;
 }
 
 .how-to {
@@ -195,16 +217,36 @@ header {
     display: none;
     position: absolute;
     font-size: 8em;
-    color: green;
+    color: rgb(30, 241, 30);
     z-index: 2;
     width: 680px;
     height: 680px;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
     margin-top: 45px;
     padding-top: 1em;
+}
+
+.game-done-div {
+    text-align: center;
+}
+
+#game-done {
+    display: none;
+    position: absolute;
+    font-size: 8em;
+    color: rgb(30, 164, 241);
+    z-index: 2;
+    width: 680px;
+    height: 680px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 255, 255, 0.4);
+    margin-top: 45px;
+    padding-top: 1.5em;
 }
 
 audio {
