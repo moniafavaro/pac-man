@@ -74,3 +74,23 @@ Use the arrow keys on your keyboard to navigate through the maze.
 Lord Voldemort as Pac-Man, need to run away from the 'noses' and colect all the scars(in the shape of a lightning bolt). 
 
 The mission is to pass all three levels.
+
+# Wins
+
+For me was a big win to made this project with only 3 weeks of the course and be able to delivered the MVP.
+
+# Bugs
+
+I really wanted to have more levels on my game, but for some reason I have a bug on it and no one was able to help me to fix it. 
+
+When you pass to the next level, the player appear on the same place that it was when it catch the last 'food' and also appear a 'shadow' of it where it was suppost to start. 
+
+When the player loses one life, it start again from the right position:
+
+https://user-images.githubusercontent.com/60261970/148065456-2212a40a-44cb-4b8c-a721-be02118977cf.mov
+
+But when the level starts, only the enemies are able to start from the right position:
+
+https://user-images.githubusercontent.com/60261970/148072625-25665f02-d66a-41f3-8325-b40df0988345.mp4
+
+When the course ended I came back to have a look at this bug, but still couldn't find a way to fix it.
