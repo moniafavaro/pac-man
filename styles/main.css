@@ -1,261 +1,261 @@
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    text-align: center;
-    font-family: 'Press Start 2P', cursive;
-    background-image: url(../other-resources/green-sky.jpeg);
-    background-position: center;
-    background-repeat: no-repeat;
+  text-align: center;
+  font-family: "Press Start 2P", cursive;
+  background-image: url(../other-resources/green-sky.jpeg);
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .main {
-    width: 1024px;
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    margin-top: -3em;
+  width: 1024px;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin-top: -3em;
 }
 
 header {
-    color: rgb(15, 87, 15);
-    margin-top: 3em;
+  color: rgb(15, 87, 15);
+  margin-top: 3em;
 }
 
 .game-container {
-    height: 190px;
-    width: 190px;
+  height: 190px;
+  width: 190px;
 }
 
 .game {
-    display: flex;
-    flex-wrap: wrap;
-    height: 672px;
-    width: 672px;
-    position: absolute;
-    top: 70%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  height: 672px;
+  width: 672px;
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
 .sqm-enabled {
-    flex-grow: 1;
-    height: 32px;
-    width: 32px;
-    background-color: rgb(184, 235, 184);
+  flex-grow: 1;
+  height: 32px;
+  width: 32px;
+  background-color: rgb(184, 235, 184);
 }
 
 .sqm-disabled {
-    flex-grow: 1;
-    height: 32px;
-    width: 32px;
-    background-color: rgb(5, 5, 5);
+  flex-grow: 1;
+  height: 32px;
+  width: 32px;
+  background-color: rgb(5, 5, 5, 0.6);
 }
 
 .sqm-food-disabled {
-    flex-grow: 1;
-    height: 32px;
-    width: 32px;
-    background-color: rgb(184, 235, 184);
+  flex-grow: 1;
+  height: 32px;
+  width: 32px;
+  background-color: rgb(184, 235, 184);
 }
 
 .sqm-food {
-    flex-grow: 1;
-    height: 32px;
-    width: 32px;
-    background-image: url(../other-resources/scar.png);
-    background-repeat: no-repeat;
-    background-color: rgb(184, 235, 184);
-    background-size: 50%;
-    background-position: center;
+  flex-grow: 1;
+  height: 32px;
+  width: 32px;
+  background-image: url(../other-resources/scar.png);
+  background-repeat: no-repeat;
+  background-color: rgb(184, 235, 184);
+  background-size: 50%;
+  background-position: center;
 }
 
 #voldy {
-    background-size: 100%;
-    display: none;
-    position: absolute;
-    font-size: 11em;
-    color: red;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  background-size: 100%;
+  display: none;
+  position: absolute;
+  font-size: 11em;
+  color: red;
+  z-index: 2;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .sqm-player {
-    flex-grow: 1;
-    height: 32px;
-    width: 32px;
-    background-image: url(../other-resources/lord-voldemort.png);
-    background-color: rgb(184, 235, 184);
-    background-size: cover;
+  flex-grow: 1;
+  height: 32px;
+  width: 32px;
+  background-image: url(../other-resources/lord-voldemort.png);
+  background-color: rgb(184, 235, 184);
+  background-size: cover;
 }
 
 .sqm-enemy {
-    flex-grow: 1;
-    height: 32px;
-    width: 32px;
-    background-image: url(../other-resources/nose.png);
-    background-color: rgb(184, 235, 184);
-    background-size: cover;
+  flex-grow: 1;
+  height: 32px;
+  width: 32px;
+  background-image: url(../other-resources/nose.png);
+  background-color: rgb(184, 235, 184);
+  background-size: cover;
 }
 
 .button {
-    display: flex;
-    flex-direction: row;
-    margin-left: -1em;
+  display: flex;
+  flex-direction: row;
+  margin-left: -1em;
 }
 
 .start-button {
-    padding: 10px 10px;
-    text-align: center;
-    font-size: 10px;
-    margin: 8px;
-    border-radius: 5px;
-    box-shadow:rgba(0, 0, 0, 0.2);
-    width: 70px;
-    font-family: 'Press Start 2P', cursive;
-    background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  width: 70px;
+  font-family: "Press Start 2P", cursive;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .reset-button {
-    padding: 10px 10px;
-    text-align: center;
-    font-size: 10px;
-    margin: 8px;
-    border-radius: 5px;
-    box-shadow:rgba(0, 0, 0, 0.2);
-    width: 70px;
-    font-family: 'Press Start 2P', cursive;
-    background-color: rgba(255, 255, 255, 0.3);
+  padding: 10px 10px;
+  text-align: center;
+  font-size: 10px;
+  margin: 8px;
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  width: 70px;
+  font-family: "Press Start 2P", cursive;
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 .life {
-    display: flex;
-    align-items: center;
-    width: 170px;
-    height: 50px;
-    margin-top: 50px;
-    padding: 7px;
-    font-size: 9px;
-    margin-left: -2em;
+  display: flex;
+  align-items: center;
+  width: 170px;
+  height: 50px;
+  margin-top: 50px;
+  padding: 7px;
+  font-size: 9px;
+  margin-left: -2em;
 }
 
 .score {
-    display: flex;
-    align-items: center;
-    width: 170px;
-    height: 50px;
-    margin-top: 20px;
-    padding: 7px;
-    font-size: 9px;
-    margin-left: -2em;
+  display: flex;
+  align-items: center;
+  width: 170px;
+  height: 50px;
+  margin-top: 20px;
+  padding: 7px;
+  font-size: 9px;
+  margin-left: -2em;
 }
 
 .high-score {
-    text-align: center;
-    width: 150px;
-    height: 200px;
-    margin-top: 30px;
-    font-size: 10px;
-    margin-left: -1em;
+  text-align: center;
+  width: 150px;
+  height: 200px;
+  margin-top: 30px;
+  font-size: 10px;
+  margin-left: -1em;
 }
 
 .how-to-play {
-    text-align: center;
-    width: 200px;
-    height: 250px;
-    float: right;
-    margin-top: -40em;
-    font-size: 12px;
-    margin-right: -4em;
+  text-align: center;
+  width: 200px;
+  height: 250px;
+  float: right;
+  margin-top: -40em;
+  font-size: 12px;
+  margin-right: -4em;
 }
 
 .how-to-play-list {
-    text-align: center;
-    width: 200px;
-    height: 250px;
-    float: right;
-    font-size: 12px;
-    padding: 2px;
-    margin-right: -1em;
+  text-align: center;
+  width: 200px;
+  height: 250px;
+  float: right;
+  font-size: 12px;
+  padding: 2px;
+  margin-right: -1em;
 }
 
 .how-to {
-    padding: 15px;
-    color: red;
+  padding: 15px;
+  color: red;
 }
 
 .game-over-div {
-    text-align: center;
+  text-align: center;
 }
 
 #game-over {
-    display: none;
-    position: absolute;
-    font-size: 11em;
-    color: red;
-    z-index: 2;
-    width: 680px;
-    height: 680px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.3);
-    margin-top: 45px;
-    padding-top: 1em;
-}    
+  display: none;
+  position: absolute;
+  font-size: 11em;
+  color: red;
+  z-index: 2;
+  width: 680px;
+  height: 680px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.3);
+  margin-top: 45px;
+  padding-top: 1em;
+}
 
 .game-message-div {
-    text-align: center;
+  text-align: center;
 }
 
 #game-message {
-    display: none;
-    position: absolute;
-    font-size: 8em;
-    color: rgb(30, 241, 30);
-    z-index: 2;
-    width: 680px;
-    height: 680px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.4);
-    margin-top: 45px;
-    padding-top: 1em;
+  display: none;
+  position: absolute;
+  font-size: 8em;
+  color: rgb(30, 241, 30);
+  z-index: 2;
+  width: 680px;
+  height: 680px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-top: 45px;
+  padding-top: 1em;
 }
 
 .game-done-div {
-    text-align: center;
+  text-align: center;
 }
 
 #game-done {
-    display: none;
-    position: absolute;
-    font-size: 8em;
-    color: rgb(30, 164, 241);
-    z-index: 2;
-    width: 680px;
-    height: 680px;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background-color: rgba(255, 255, 255, 0.4);
-    margin-top: 45px;
-    padding-top: 1.5em;
+  display: none;
+  position: absolute;
+  font-size: 8em;
+  color: rgb(30, 164, 241);
+  z-index: 2;
+  width: 680px;
+  height: 680px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(255, 255, 255, 0.4);
+  margin-top: 45px;
+  padding-top: 1.5em;
 }
 
 audio {
-    width: 120px;
-    height: 40px;
-    display: block;
-    margin-top: -5em;
+  width: 120px;
+  height: 40px;
+  display: block;
+  margin-top: -5em;
 }
 
 audio::-webkit-media-controls-panel {
-    background-color: rgb(93, 202, 93);
+  background-color: rgb(93, 202, 93);
 }
