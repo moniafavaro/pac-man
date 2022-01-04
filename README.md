@@ -93,4 +93,4 @@ But when the level starts, only the enemies are able to start from the right pos
 
 https://user-images.githubusercontent.com/60261970/148072625-25665f02-d66a-41f3-8325-b40df0988345.mp4
 
-When the course ended I came back to have a look at this bug, but still couldn't find a way to fix it.
+When the course ended I came back to have a look at this bug, but I couldn't find a way to fix it.
