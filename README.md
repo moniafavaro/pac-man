@@ -1,4 +1,6 @@
-## Voldy-Man. 
+# Voldy-Man - Game play
+
+https://user-images.githubusercontent.com/60261970/148057784-1fc59e3e-d340-482a-a800-6d3b46ce8e60.mp4
 
 # Description
 
@@ -16,6 +18,8 @@ Repository link: https://github.com/moniafavaro/pac-man
 
 This project was my first one with JavaScript. Pac-Man was my choice because of lots of memories that I have from my childhood. The theme is inspired in Harry Potter World, with Lord Voldemort as the main character.
 
+![voldyman_start](https://user-images.githubusercontent.com/60261970/148057855-fd582438-67b8-457f-82cb-25713be1c4ec.png)
+
 # Getting Started
 
 To start with this project I firstly used pseudo code, where I wrote step by step how I wanted my code to work, or what I want my code to have.
@@ -32,17 +36,25 @@ With the first nose running free, the next challenge was when the nose is in the
 
 When this first nose was working 'perfectly' and removing one life from the player I added two more noses.
 
+![voldyman-maze](https://user-images.githubusercontent.com/60261970/148057997-e2012c60-e356-45ba-9a88-c4394057e77e.png)
+
 So the NVP was done, but I wasn't happy, I wanted more levels.
 
 The second level starts when voldy-man catch all 'scars'.
 
 On the second level I added more noses and made them walk faster.
 
+![voldyman-level-2](https://user-images.githubusercontent.com/60261970/148058652-b4f0ceca-8df1-4133-8ee8-1615acafbf17.png)
+
 The third and last level has more noses and they walk even faster.
+
+![voldyman-level-3](https://user-images.githubusercontent.com/60261970/148058666-79bfd880-fec5-46b5-9363-783bec81b0bc.png)
 
 To finish the game you just need to catch all 'scars' of all levels and have at least one life.
 
-And you can see your score on the scoreboard.
+And you can see your score and how many lives you still have on the scoreboard.
+
+![voldyman-info](https://user-images.githubusercontent.com/60261970/148058815-917f42fd-0af3-49b9-b095-2096639132f4.png)
 
 # Frameworks used
 * JavaScript
