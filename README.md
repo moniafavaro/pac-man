@@ -19,8 +19,10 @@ Repository link: https://github.com/moniafavaro/pac-man
 
 This project was my first one with JavaScript. Pac-Man was my choice because of lots of memories that I have from my childhood. The theme is inspired in Harry Potter World, with Lord Voldemort as the main character.
 
-![voldyman_start](https://user-images.githubusercontent.com/60261970/148057855-fd582438-67b8-457f-82cb-25713be1c4ec.png | witdh=100)
-
+<p align='center'>
+    <img width='500' height='400' src='https://user-images.githubusercontent.com/60261970/148057855-fd582438-67b8-457f-82cb-25713be1c4ec.png'>
+</p>
+          
 # Getting Started
 
 To start with this project I firstly used pseudo code, where I wrote step by step how I wanted my code to work, or what I wanted my code to have.
