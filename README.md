@@ -1,8 +1,8 @@
 # Voldy-Man - Game play
 
-<p align='center'>
-    <video width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148057784-1fc59e3e-d340-482a-a800-6d3b46ce8e60.mp4'>
-</p>
+https://user-images.githubusercontent.com/60261970/148057784-1fc59e3e-d340-482a-a800-6d3b46ce8e60.mp4
+
+    
 # Description
 
 This is my first project from the General Assembly course SEI-59.
@@ -40,7 +40,9 @@ With the first nose running free, the next challenge was when the nose is in the
 
 When this first nose was working 'perfectly' and removing one life from the player I added two more noses.
 
-![voldyman-maze](https://user-images.githubusercontent.com/60261970/148057997-e2012c60-e356-45ba-9a88-c4394057e77e.png)
+<p align='center'>
+    <img width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148057997-e2012c60-e356-45ba-9a88-c4394057e77e.png'>
+</p>
 
 So the NVP was done, but I wasn't happy, I wanted more levels.
 
@@ -48,17 +50,23 @@ The second level starts when voldy-man catchs all 'scars'.
 
 On the second level I added more noses and made them walk faster.
 
-![voldyman-level-2](https://user-images.githubusercontent.com/60261970/148058652-b4f0ceca-8df1-4133-8ee8-1615acafbf17.png)
+<p align='center'>
+    <img width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148058652-b4f0ceca-8df1-4133-8ee8-1615acafbf17.png'>
+</p>
 
 The third and last level has more noses and they walk even faster.
 
-![voldyman-level-3](https://user-images.githubusercontent.com/60261970/148058666-79bfd880-fec5-46b5-9363-783bec81b0bc.png)
+<p align='center'>
+    <img width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148058666-79bfd880-fec5-46b5-9363-783bec81b0bc.png'>
+</p>
 
 To finish the game you just need to catch all 'scars' of all levels and have at least one life.
 
 And you can see your score and how many lives you still have on the scoreboard.
 
-![voldyman-info](https://user-images.githubusercontent.com/60261970/148058815-917f42fd-0af3-49b9-b095-2096639132f4.png)
+<p align='center'>
+    <img width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148058815-917f42fd-0af3-49b9-b095-2096639132f4.png'>
+</p>
 
 # Frameworks Used
 * JavaScript
