@@ -90,7 +90,7 @@ Lord Voldemort, as Pac-Man, needs to run away from the 'noses' and collect all t
 The mission is to pass all three levels.
 
 
-##Known Bugs
+## Known Bugs
 
 I really wanted to have more levels on my game, but for some reason I have a bug on it and no one was able to help me to fix it. 
 
