@@ -1,30 +1,30 @@
-# Voldy-Man - Game play
+# Voldy-Man 
 
-https://user-images.githubusercontent.com/60261970/148057784-1fc59e3e-d340-482a-a800-6d3b46ce8e60.mp4
+## Goal
 
-    
-# Description
+Design a grid-based game using HTML, CSS and JavaScript. The game should be playable for one player and the player must be able to win and lose. 
 
-This is my first project from the General Assembly course SEI-59.
+## Timeframe
 
-Design a grid-based game using HTML, CSS and JavaScript. The game should be playable for one player and the player must be able to win and lose. Timeframe: 1 week.
+Timeframe: 1 week.
 
-# Deployment
 
-Please follow the link to play the game: https://moniafavaro.github.io/pac-man/
-
-Repository link: https://github.com/moniafavaro/pac-man
-
-    
-# Inspiration 
+## Inspiration 
 
 This project was my first one with JavaScript. Pac-Man was my choice because of lots of memories that I have from my childhood. The theme is inspired in Harry Potter World, with Lord Voldemort as the main character.
 
-<p align='center'>
-    <img width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148057855-fd582438-67b8-457f-82cb-25713be1c4ec.png'>
-</p>
+
+## Project Overview
+
+https://user-images.githubusercontent.com/60261970/148057784-1fc59e3e-d340-482a-a800-6d3b46ce8e60.mp4
+
+
+## Deployment
+
+Please follow the link to play the game: https://moniafavaro.github.io/pac-man/
+
           
-# Getting Started
+## Getting Started
 
 To start with this project I firstly used pseudo code, where I wrote step by step how I wanted my code to work, or what I wanted my code to have.
 
@@ -68,7 +68,8 @@ And you can see your score and how many lives you still have on the scoreboard.
     <img width='400' height='260' src='https://user-images.githubusercontent.com/60261970/148058815-917f42fd-0af3-49b9-b095-2096639132f4.png'>
 </p>
 
-# Frameworks Used
+## Technologies Used
+
 * JavaScript
 * CSS3
 * HTML5
@@ -77,7 +78,8 @@ And you can see your score and how many lives you still have on the scoreboard.
 * Chrome
 * Git and GitHub
 
-# How to play
+
+## How to play
 
 Click the start button.
 
@@ -87,11 +89,8 @@ Lord Voldemort, as Pac-Man, needs to run away from the 'noses' and collect all t
 
 The mission is to pass all three levels.
 
-# Wins
 
-For me it was a big win to made this project with only 3 weeks of the course and be able to delivered the MVP.
-
-# Bugs
+##Known Bugs
 
 I really wanted to have more levels on my game, but for some reason I have a bug on it and no one was able to help me to fix it. 
 
@@ -106,3 +105,29 @@ But when the level starts, only the enemies are able to start from the right pos
 https://user-images.githubusercontent.com/60261970/148072625-25665f02-d66a-41f3-8325-b40df0988345.mp4
 
 When the course ended I came back to have a look at this bug, but I couldn't find a way to fix it.
+
+## Challenges
+
+* With only few weeks into the bootcamp, having to build a game in one week was the biggest challenge.
+* Make the enemies run in different directions from each other.
+
+
+## Wins
+
+For me it was a big win to made this project with only 3 weeks of the course and be able to delivered the MVP.
+
+## Future Features 
+
+* To start I want to be able to fix the bugs.
+* Make the enemies and the hero run smoothly through the maze.
+* Change the wall, so they can be more rounded.
+* Add a passage from one side to the other.
+* Add bonus food.
+
+## Key Learnings
+
+* Always start with pseudocode, that made coding easier.
+ * General planning techniques for code based projects.
+* Event Listeners.
+* Flexbox.
+* Debugging, I have to spend some time trying to bebugg my project with so success, but I learned a lot through this.
