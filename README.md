@@ -46,7 +46,7 @@ When this first nose was working 'perfectly' and removing one life from the play
 
 So the NVP was done, but I wasn't happy, I wanted more levels.
 
-The second level starts when voldy-man catchs all 'scars'.
+The second level starts when voldy-man catches all 'scars'.
 
 On the second level I added more noses and made them walk faster.
 
@@ -108,13 +108,13 @@ When the course ended I came back to have a look at this bug, but I couldn't fin
 
 ## Challenges
 
-* With only few weeks into the bootcamp, having to build a game in one week was the biggest challenge.
+* With only a few weeks into the bootcamp, having to build a game in one week was the biggest challenge.
 * Make the enemies run in different directions from each other.
 
 
 ## Wins
 
-For me it was a big win to made this project with only 3 weeks of the course and be able to delivered the MVP.
+For me it was a big win to make this project with only 3 weeks of the course and be able to deliver the MVP.
 
 ## Future Features 
 
@@ -126,8 +126,8 @@ For me it was a big win to made this project with only 3 weeks of the course and
 
 ## Key Learnings
 
-* Always start with pseudocode, that made coding easier.
+* Always start with pseudocode, that makes coding easier.
  * General planning techniques for code based projects.
 * Event Listeners.
 * Flexbox.
-* Debugging, I have to spend some time trying to bebugg my project with so success, but I learned a lot through this.
+* Debugging, I have to spend some time trying to bebug my project with no success, but I learned a lot through this.
