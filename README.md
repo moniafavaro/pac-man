@@ -8,7 +8,7 @@ This is my first project from the General Assembly course SEI-59.
 
 Design a grid-based game using HTML, CSS and JavaScript. The game should be playable for one player and the player must be able to win and lose. Timeframe: 1 week.
 
-# <details><summary>Deployment</summary>
+<details>#<summary>Deployment</summary>
 
   <p>
 Please follow the link to play the game: https://moniafavaro.github.io/pac-man/
