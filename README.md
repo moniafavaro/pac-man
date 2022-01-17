@@ -65,7 +65,7 @@ To finish the game you just need to catch all 'scars' of all levels and have at 
 And you can see your score and how many lives you still have on the scoreboard.
 
 <p align='center'>
-    <img width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148058815-917f42fd-0af3-49b9-b095-2096639132f4.png'>
+    <img width='400' height='260' src='https://user-images.githubusercontent.com/60261970/148058815-917f42fd-0af3-49b9-b095-2096639132f4.png'>
 </p>
 
 # Frameworks Used
