@@ -1,7 +1,8 @@
 # Voldy-Man - Game play
 
-https://user-images.githubusercontent.com/60261970/148057784-1fc59e3e-d340-482a-a800-6d3b46ce8e60.mp4
-
+<p align='center'>
+    <video width='500' height='360' src='https://user-images.githubusercontent.com/60261970/148057784-1fc59e3e-d340-482a-a800-6d3b46ce8e60.mp4'>
+</p>
 # Description
 
 This is my first project from the General Assembly course SEI-59.
