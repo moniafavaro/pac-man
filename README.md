@@ -8,12 +8,16 @@ This is my first project from the General Assembly course SEI-59.
 
 Design a grid-based game using HTML, CSS and JavaScript. The game should be playable for one player and the player must be able to win and lose. Timeframe: 1 week.
 
-# Deployment
+<details><summary># Deployment</summary>
 
+  <p>
 Please follow the link to play the game: https://moniafavaro.github.io/pac-man/
 
 Repository link: https://github.com/moniafavaro/pac-man
 
+  </p>
+</details
+    
 # Inspiration 
 
 This project was my first one with JavaScript. Pac-Man was my choice because of lots of memories that I have from my childhood. The theme is inspired in Harry Potter World, with Lord Voldemort as the main character.
